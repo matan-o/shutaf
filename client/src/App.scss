@@ -1,0 +1,394 @@
+$background-color-primary: #0b2461;
+$background-color-secondary: #6783ff;
+$background-color-btn: #0b2461;
+$background-color-btn-hover: #123388;
+$anchor-color-a: white;
+$anchor-color-b: rgb(134, 134, 134);
+$box-shadow-main: 2px 2px 10px 1px rgb(203, 203, 214);
+
+@mixin anchor($size, $color) {
+  a,
+  a:active {
+    font-size: $size;
+    color: $color;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+// -----------------------------------------------
+* {
+  margin: 0px;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0.5px;
+  margin: 5px 0;
+}
+
+body {
+  background-color: #f6faff;
+  margin: 10px;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+
+
+
+
+
+select,
+input[type="text"],
+input[type="date"],
+textarea {
+  padding: 6px 16px;
+  margin: 4px 0;
+  max-width: 100%;
+  line-height: 1.6;
+  resize: none;
+  border: none;
+  border-radius: 10px;
+  box-shadow: $box-shadow-main;
+  opacity: 0.6;
+  &:focus {
+    outline: none;
+  }
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.app {
+  margin: auto;
+  direction: rtl;
+  max-width: 600px;
+}
+
+.header {
+  margin: auto;
+  .logo {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: fit-content;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+    font-size: 55px;
+    color: white;
+    text-shadow: 1px 1px 20px #0b2461;
+  }
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+}
+
+.btn {
+  margin: 4px 0px 4px 12px;
+  padding-block: 3px;
+  padding: 8px 16px 8px 16px;
+  display: inline-flex;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: $background-color-btn;
+  color: white;
+  svg {
+    margin-left: 8px;
+    align-items: center;
+  }
+  transition: 0.2s;
+
+  &:hover {
+    background-color: $background-color-btn-hover;
+    box-shadow: 1px 1px 8px 1px rgb(169, 169, 172);
+  }
+  &:disabled {
+    opacity: 0.8;
+  }
+}
+
+.btn-100 {
+  margin-top: 3px;
+  justify-content: center;
+  place-items: center;
+  background-color: white;
+  border: 1px solid gray;
+}
+
+.navBar {
+  @include anchor(20px, $anchor-color-a);
+  margin: 0 0 20px 0;
+  max-width: 100%;
+  border-radius: 10px;
+  padding-block: 3px;
+  padding-inline: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $background-color-primary;
+  svg{
+    &:hover {
+    transform: scale(1.2);
+    transition: 0.2s ease-in-out;
+    
+  }
+}
+}
+.profile {
+  background-color: white;
+  @extend .post-display;
+  h2 {
+    color: $anchor-color-b;
+    text-align: center;
+  }
+}
+.posts-feed{
+  .posts-feed-btn{
+    @extend .btn;
+    width: 100% ;
+  }
+}
+
+.post-display {
+  background-color: white;
+
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: $box-shadow-main;
+  margin-block: 15px;
+  .post-display-top-right {
+    grid-area: r;
+  }
+  .post-display-top-center {
+    grid-area: c;
+  }
+  .post-display-top-left {
+    grid-area: l;
+    color: $anchor-color-b;
+    .post-location,
+    .post-category {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .post-display-top {
+    @include anchor(10px, $anchor-color-b);
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-areas: "r c l";
+  }
+  .post-body {
+    @include anchor(20px, $anchor-color-b);
+    p {
+      font-size: 17px;
+    }
+  }
+  .postImg {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+.post-selected {
+  h1 {
+    color: $anchor-color-b;
+  }
+  @extend .post-display;
+}
+
+.post-edit {
+  display: flex;
+  flex-direction: column;
+  .previewImg {
+    max-width: 120px;
+  }
+}
+
+.comment-display {
+  margin-inline: auto;
+  width: 90%;
+  background-color: rgb(250, 253, 255);
+  padding: 6px 9px 6px 19px;
+  box-shadow: $box-shadow-main;
+  margin-block: 8px;
+  color: gray;
+  @include anchor(17px, $anchor-color-b);
+  a {
+    margin-left: 4px;
+  }
+  .btns {
+    bottom: 0;
+    margin-right: 10px;
+  }
+  .comment-user {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+  }
+  .comment-body,
+  .dateDisplay {
+    margin-right: 13px;
+  }
+}
+
+.comment-form {
+  margin-inline: auto;
+  width: 90%;
+  position: relative;
+  #comment-textarea {
+    margin: 11px 0px 3px 0px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    .btn {
+      opacity: 0.7;
+    }
+  }
+}
+
+.admin-panel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  h2 {
+    color: $anchor-color-b;
+  }
+  .categories-form,
+  .users-panel {
+    background-color: white;
+    height: 100%;
+    box-shadow: $box-shadow-main;
+    margin-inline: 5px;
+    border-radius: 10px;
+    padding: 3px 15px 12px 8px;
+    overflow: auto;
+    input {
+      @extend input[type="text"];
+      margin-left: 10px;
+    }
+    .category-column {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+}
+
+.image-upload {
+  .file-input {
+    display: none;
+  }
+  .previewImg {
+    margin: auto;
+    max-width: 120px;
+  }
+  label {
+    @extend .btn;
+    border-radius: 10px;
+    height: 15px;
+    font-weight: 400;
+  }
+}
+
+.previewImg {
+  margin: auto;
+  border-radius: 10px;
+}
+
+.ProfileEdit,
+.register-form,
+.user-details-form {
+  margin: auto;
+  width: 320px;
+  input {
+    @extend input[type="text"];
+  }
+  fieldset {
+    margin: auto;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    width: 220px;
+  }
+  button {
+    @extend .btn;
+    width: 100%;
+    text-align: center;
+  }
+  .previewImg {
+    max-width: 120px;
+  }
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.PostForm {
+  margin: auto;
+  margin-bottom: 20px;
+  
+  display: flex;
+  flex-direction: column;
+  .previewImg {
+    max-width: 200px;
+  }
+  button {
+    width: 100%;
+  }
+}
+
+.profile-img-mid {
+  width: 50px;
+  border-radius: 40px;
+}
+
+.profile-pic {
+  width: 150px;
+  border-radius: 50%;
+  border: 1px solid rgb(212, 212, 212);
+  padding: 3px;
+}
+.profile-img-small {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border:none;
+  border: 1px solid rgb(212, 212, 212);
+  padding: 3px;
+}
+
+.profile-img-tiny {
+  width: 40px;
+  height: 40px;
+  margin-right: 7px;
+  border-radius: 50%;
+  border: 1px solid rgb(212, 212, 212);
+  padding: 1px;
+}
+
+.myProfile {
+  margin: auto;
+  width: fit-content;
+}
+
+.dateDisplay {
+  color: gray;
+}

@@ -1,0 +1,468 @@
+* {
+  margin: 0px;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0.5px;
+  margin: 5px 0;
+}
+
+body {
+  background-color: #f6faff;
+  margin: 10px;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+select,
+input[type="text"],
+.admin-panel .categories-form input,
+.admin-panel .users-panel input,
+.ProfileEdit input,
+.register-form input,
+.user-details-form input,
+input[type="date"],
+textarea {
+  padding: 6px 16px;
+  margin: 4px 0;
+  max-width: 100%;
+  line-height: 1.6;
+  resize: none;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px 1px #cbcbd6;
+  opacity: 0.6;
+}
+
+select:focus,
+input[type="text"]:focus,
+.admin-panel .categories-form input:focus,
+.admin-panel .users-panel input:focus,
+.ProfileEdit input:focus,
+.register-form input:focus,
+.user-details-form input:focus,
+input[type="date"]:focus,
+textarea:focus {
+  outline: none;
+}
+
+select:hover, select:focus,
+input[type="text"]:hover,
+.admin-panel .categories-form input:hover,
+.admin-panel .users-panel input:hover,
+.ProfileEdit input:hover,
+.register-form input:hover,
+.user-details-form input:hover,
+input[type="text"]:focus,
+.admin-panel .categories-form input:focus,
+.admin-panel .users-panel input:focus,
+.ProfileEdit input:focus,
+.register-form input:focus,
+.user-details-form input:focus,
+input[type="date"]:hover,
+input[type="date"]:focus,
+textarea:hover,
+textarea:focus {
+  opacity: 1;
+}
+
+.app {
+  margin: auto;
+  direction: rtl;
+  max-width: 600px;
+}
+
+.header {
+  margin: auto;
+}
+
+.header .logo {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: fit-content;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+  font-size: 55px;
+  color: white;
+  text-shadow: 1px 1px 20px #0b2461;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+}
+
+.btn, .posts-feed .posts-feed-btn, .image-upload label, .ProfileEdit button,
+.register-form button,
+.user-details-form button {
+  margin: 4px 0px 4px 12px;
+  padding-block: 3px;
+  padding: 8px 16px 8px 16px;
+  display: inline-flex;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #0b2461;
+  color: white;
+  transition: 0.2s;
+}
+
+.btn svg, .posts-feed .posts-feed-btn svg, .image-upload label svg, .ProfileEdit button svg,
+.register-form button svg,
+.user-details-form button svg {
+  margin-left: 8px;
+  align-items: center;
+}
+
+.btn:hover, .posts-feed .posts-feed-btn:hover, .image-upload label:hover, .ProfileEdit button:hover,
+.register-form button:hover,
+.user-details-form button:hover {
+  background-color: #123388;
+  box-shadow: 1px 1px 8px 1px #a9a9ac;
+}
+
+.btn:disabled, .posts-feed .posts-feed-btn:disabled, .image-upload label:disabled, .ProfileEdit button:disabled,
+.register-form button:disabled,
+.user-details-form button:disabled {
+  opacity: 0.8;
+}
+
+.btn-100 {
+  margin-top: 3px;
+  justify-content: center;
+  place-items: center;
+  background-color: white;
+  border: 1px solid gray;
+}
+
+.navBar {
+  margin: 0 0 20px 0;
+  max-width: 100%;
+  border-radius: 10px;
+  padding-block: 3px;
+  padding-inline: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #0b2461;
+}
+
+.navBar a,
+.navBar a:active {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.navBar a:hover {
+  text-decoration: underline;
+}
+
+.navBar svg:hover {
+  transform: scale(1.2);
+  transition: 0.2s ease-in-out;
+}
+
+.profile {
+  background-color: white;
+}
+
+.profile h2 {
+  color: #868686;
+  text-align: center;
+}
+
+.posts-feed .posts-feed-btn {
+  width: 100%;
+}
+
+.post-display, .profile, .post-selected {
+  background-color: white;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px 1px #cbcbd6;
+  margin-block: 15px;
+}
+
+.post-display .post-display-top-right, .profile .post-display-top-right, .post-selected .post-display-top-right {
+  grid-area: r;
+}
+
+.post-display .post-display-top-center, .profile .post-display-top-center, .post-selected .post-display-top-center {
+  grid-area: c;
+}
+
+.post-display .post-display-top-left, .profile .post-display-top-left, .post-selected .post-display-top-left {
+  grid-area: l;
+  color: #868686;
+}
+
+.post-display .post-display-top-left .post-location, .profile .post-display-top-left .post-location, .post-selected .post-display-top-left .post-location,
+.post-display .post-display-top-left .post-category, .profile .post-display-top-left .post-category, .post-selected .post-display-top-left .post-category {
+  display: flex;
+  flex-direction: row;
+}
+
+.post-display .post-display-top, .profile .post-display-top, .post-selected .post-display-top {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-areas: "r c l";
+}
+
+.post-display .post-display-top a, .profile .post-display-top a, .post-selected .post-display-top a,
+.post-display .post-display-top a:active, .profile .post-display-top a:active, .post-selected .post-display-top a:active {
+  font-size: 10px;
+  color: #868686;
+  text-decoration: none;
+}
+
+.post-display .post-display-top a:hover, .profile .post-display-top a:hover, .post-selected .post-display-top a:hover {
+  text-decoration: underline;
+}
+
+.post-display .post-body a, .profile .post-body a, .post-selected .post-body a,
+.post-display .post-body a:active, .profile .post-body a:active, .post-selected .post-body a:active {
+  font-size: 20px;
+  color: #868686;
+  text-decoration: none;
+}
+
+.post-display .post-body a:hover, .profile .post-body a:hover, .post-selected .post-body a:hover {
+  text-decoration: underline;
+}
+
+.post-display .post-body p, .profile .post-body p, .post-selected .post-body p {
+  font-size: 17px;
+}
+
+.post-display .postImg, .profile .postImg, .post-selected .postImg {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.post-selected h1 {
+  color: #868686;
+}
+
+.post-edit {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-edit .previewImg {
+  max-width: 120px;
+}
+
+.comment-display {
+  margin-inline: auto;
+  width: 90%;
+  background-color: #fafdff;
+  padding: 6px 9px 6px 19px;
+  box-shadow: 2px 2px 10px 1px #cbcbd6;
+  margin-block: 8px;
+  color: gray;
+}
+
+.comment-display a,
+.comment-display a:active {
+  font-size: 17px;
+  color: #868686;
+  text-decoration: none;
+}
+
+.comment-display a:hover {
+  text-decoration: underline;
+}
+
+.comment-display a {
+  margin-left: 4px;
+}
+
+.comment-display .btns {
+  bottom: 0;
+  margin-right: 10px;
+}
+
+.comment-display .comment-user {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.comment-display .comment-body,
+.comment-display .dateDisplay {
+  margin-right: 13px;
+}
+
+.comment-form {
+  margin-inline: auto;
+  width: 90%;
+  position: relative;
+}
+
+.comment-form #comment-textarea {
+  margin: 11px 0px 3px 0px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.comment-form #comment-textarea .btn, .comment-form #comment-textarea .posts-feed .posts-feed-btn, .posts-feed .comment-form #comment-textarea .posts-feed-btn, .comment-form #comment-textarea .image-upload label, .image-upload .comment-form #comment-textarea label, .comment-form #comment-textarea .ProfileEdit button, .ProfileEdit .comment-form #comment-textarea button, .comment-form #comment-textarea
+.register-form button,
+.register-form .comment-form #comment-textarea button, .comment-form #comment-textarea
+.user-details-form button,
+.user-details-form .comment-form #comment-textarea button {
+  opacity: 0.7;
+}
+
+.admin-panel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.admin-panel h2 {
+  color: #868686;
+}
+
+.admin-panel .categories-form,
+.admin-panel .users-panel {
+  background-color: white;
+  height: 100%;
+  box-shadow: 2px 2px 10px 1px #cbcbd6;
+  margin-inline: 5px;
+  border-radius: 10px;
+  padding: 3px 15px 12px 8px;
+  overflow: auto;
+}
+
+.admin-panel .categories-form input,
+.admin-panel .users-panel input {
+  margin-left: 10px;
+}
+
+.admin-panel .categories-form .category-column,
+.admin-panel .users-panel .category-column {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.image-upload .file-input {
+  display: none;
+}
+
+.image-upload .previewImg {
+  margin: auto;
+  max-width: 120px;
+}
+
+.image-upload label {
+  border-radius: 10px;
+  height: 15px;
+  font-weight: 400;
+}
+
+.previewImg {
+  margin: auto;
+  border-radius: 10px;
+}
+
+.ProfileEdit,
+.register-form,
+.user-details-form {
+  margin: auto;
+  width: 320px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.ProfileEdit fieldset,
+.register-form fieldset,
+.user-details-form fieldset {
+  margin: auto;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  width: 220px;
+}
+
+.ProfileEdit button,
+.register-form button,
+.user-details-form button {
+  width: 100%;
+  text-align: center;
+}
+
+.ProfileEdit .previewImg,
+.register-form .previewImg,
+.user-details-form .previewImg {
+  max-width: 120px;
+}
+
+.PostForm {
+  margin: auto;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.PostForm .previewImg {
+  max-width: 200px;
+}
+
+.PostForm button {
+  width: 100%;
+}
+
+.profile-img-mid {
+  width: 50px;
+  border-radius: 40px;
+}
+
+.profile-pic {
+  width: 150px;
+  border-radius: 50%;
+  border: 1px solid #d4d4d4;
+  padding: 3px;
+}
+
+.profile-img-small {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  border: 1px solid #d4d4d4;
+  padding: 3px;
+}
+
+.profile-img-tiny {
+  width: 40px;
+  height: 40px;
+  margin-right: 7px;
+  border-radius: 50%;
+  border: 1px solid #d4d4d4;
+  padding: 1px;
+}
+
+.myProfile {
+  margin: auto;
+  width: fit-content;
+}
+
+.dateDisplay {
+  color: gray;
+}
