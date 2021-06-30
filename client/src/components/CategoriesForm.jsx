@@ -27,7 +27,7 @@ const CategoriesForm = () => {
     putHttp(`${mainUrl}/categories/active/${id}`,
     {
       isActive: toggle,
-    }).then(()=>{
+    }).then(()=>{ 
       const category = categoriesList.find((c)=> c._id === id)
       category.isActive = !category.isActive
       setCategoriesList([...categoriesList])
